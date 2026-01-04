@@ -10,10 +10,12 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 -y copr enable crashdummy/LinuxSurface
-dnf5 -y install iptsd kernel-surface libwacom-surface --allowerasing
-dnf5 -y copr disable crashdummy/LinuxSurface
+dnf5 -y remove kernel kernel-core kernel-modules kernel-modules-extra
 
+dnf5 -y copr enable linux-surface/linux-surface
+dnf5 -y install iptsd kernel-surface libwacom-surface --allowerasing
+dnf5 -y copr disable linux-surface/linux-surface
+dracut --force
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
