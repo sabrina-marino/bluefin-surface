@@ -12,9 +12,9 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 -y remove kernel kernel-core kernel-modules kernel-modules-extra
 
-dnf5 -y copr enable linux-surface/linux-surface
+dnf5 -y copr enable crashdummy/LinuxSurface
 dnf5 -y install iptsd kernel-surface libwacom-surface --allowerasing
-dnf5 -y copr disable linux-surface/linux-surface
+dnf5 -y copr disable crashdummy/LinuxSurface
 dracut --force
 # Use a COPR Example:
 #
